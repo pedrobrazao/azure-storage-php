@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <link rel="stylesheet" href="style.css"/>
+            <title>{% block title %}{% endblock %} - Azure Dtorage Examples</title>
+        {% endblock %}
+    </head>
+    <body>
+    <h1>Azure Storage Examples</h1>
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div id="footer">
+            {% block footer %}
+                &copy; Copyright 2025 by <a href="https://github.com/pedrobrazao">Pedro Ferreira</a>.
+            {% endblock %}
+        </div>
+    </body>
+</html>
