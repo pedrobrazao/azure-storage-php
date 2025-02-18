@@ -1,4 +1,4 @@
-vendor
+#vendor
 .phpunit.cache
 phpstan.neon
 phpunit.xml
