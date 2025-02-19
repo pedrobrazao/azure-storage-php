@@ -55,11 +55,6 @@ $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
 // Define app routes
 $app->get('/', HomeHandler::class)->setName('home');
-$app->get('/hello/{name}', function (ServerRequestInterface $request, ResponseInterface $response, $args) {
-    $name = $args['name'];
-    $response->getBody()->write("Hello, $name");
-    return $response;
-})->setName('hello');
 
 // Run app
 $app->run();

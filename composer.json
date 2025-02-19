@@ -5,7 +5,8 @@
         "slim/psr7": "^1.7",
         "php-di/php-di": "^7.0",
         "monolog/monolog": "^3.8",
-        "slim/twig-view": "^3.4"
+        "slim/twig-view": "^3.4",
+        "azure-oss/storage-blob-flysystem": "^1.2"
     },
     "autoload": {
         "psr-4": {
