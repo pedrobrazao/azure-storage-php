@@ -1,5 +1,7 @@
 <?php
 
+use App\Azure\Sas\AccountUrlFactory;
+use App\Azure\Sas\UrlFactoryInterface;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;
@@ -24,5 +26,10 @@ return file_exists(__DIR__ . '/container.local.php')
             $settings = $c->get('settings')['twig'];
 
             return Twig::create($settings['path'], $settings['options']);
+                },
+                UrlFactoryInterface::class => function(ContainerInterface $c) {
+                    $settings = $c->get('settings')['blob'];
+
+                    return new AccountUrlFactory($settings['account'], $settings['container'], $settings['key']);
                 },
     ];
