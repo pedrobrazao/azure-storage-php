@@ -2,9 +2,7 @@
 
 use Monolog\Logger;
 
-return file_exists(__DIR__ . '/settings.local.php')
-    ? include __DIR__ . '/settings.local.php'
-: [
+$settings = [
     'displayErrorDetails' => false, // Should be set to false in production
     'logger' => [
         'name' => 'app',
@@ -17,4 +15,17 @@ return file_exists(__DIR__ . '/settings.local.php')
             'cache' => false,
         ],
     ],
+    'blob' => [
+        'account' => 'STORAGE ACCOUNT NAME',
+        'container' => 'CONTAINER NAME',
+        'key' => 'SHARED ACCOUNT KEY',
+    ],
 ];
+
+$localFile = __DIR__ . '/settings.local.php';
+
+if (!file_exists($localFile)) {
+    return $settings;
+}
+
+return array_merge($settings, include $localFile);

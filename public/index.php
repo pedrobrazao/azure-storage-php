@@ -1,5 +1,6 @@
     <?php
 
+use App\Handler\Api\SasUrls\CreateSasUrlHandler;
 use App\Handler\HomeHandler;
 use DI\ContainerBuilder;
 use Psr\Http\Message\ResponseInterface;
@@ -34,6 +35,9 @@ $app = AppFactory::create();
 // Add Twig-View Middleware
 $app->add(TwigMiddleware::create($app, $container->get(Twig::class)));
 
+// Enable automatic body parsing for the most common MIME types.
+$app->addBodyParsingMiddleware();
+
 /**
   * The routing middleware should be added earlier than the ErrorMiddleware
   * Otherwise exceptions thrown from it will not be handled by the middleware
@@ -55,11 +59,7 @@ $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
 // Define app routes
 $app->get('/', HomeHandler::class)->setName('home');
-$app->get('/hello/{name}', function (ServerRequestInterface $request, ResponseInterface $response, $args) {
-    $name = $args['name'];
-    $response->getBody()->write("Hello, $name");
-    return $response;
-})->setName('hello');
+$app->post('/api/sasurls', CreateSasUrlHandler::class);
 
 // Run app
 $app->run();
