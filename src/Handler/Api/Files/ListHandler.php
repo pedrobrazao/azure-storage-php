@@ -1,21 +1,16 @@
 <?php
-namespace App\Handler;
+namespace App\Handler\Api\Files;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Slim\Psr7\Response;
-use Slim\Views\Twig;
 
-final class HomeHandler implements RequestHandlerInterface
+final class ListHandler implements RequestHandlerInterface
 {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $view = Twig::fromRequest($request);
-
-        $response = new Response();
-
-        return $view->render($response, 'home.html.twig');
+        $response = new JsonResponse
     }
 }
 {
