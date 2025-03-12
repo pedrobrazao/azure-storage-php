@@ -3,5 +3,12 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h1>home</h1>
+    <h1>Containers ({{ containers|length }})</h1>
+    <ul>
+    {% for container in containers %}
+    <li>
+    {{ container.name }}
+    </li>
+    {% endfor %}
+    </ul>
 {% endblock %}

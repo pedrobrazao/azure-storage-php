@@ -3,7 +3,7 @@
 use Monolog\Logger;
 
 $settings = [
-    'displayErrorDetails' => false, // Should be set to false in production
+    'displayErrorDetails' => true, // Should be set to false in production
     'logger' => [
         'name' => 'app',
         'path' => 'php://stderr',
@@ -16,9 +16,10 @@ $settings = [
         ],
     ],
     'blob' => [
-        'account' => 'STORAGE ACCOUNT NAME',
-        'container' => 'CONTAINER NAME',
-        'key' => 'SHARED ACCOUNT KEY',
+        'accountName' => 'devstoreaccount1',
+        'accountKey' => 'Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==',
+        'protocol' => 'http',
+        'endpoint' => 'http://localhost:10000/devstoreaccount1',
     ],
 ];
 

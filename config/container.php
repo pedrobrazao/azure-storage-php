@@ -1,7 +1,6 @@
 <?php
 
-use App\Azure\Sas\AccountUrlFactory;
-use App\Azure\Sas\UrlFactoryInterface;
+use  AzureOss\Storage\Blob\BlobServiceClient;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;
@@ -27,9 +26,17 @@ return file_exists(__DIR__ . '/container.local.php')
 
             return Twig::create($settings['path'], $settings['options']);
                 },
-                UrlFactoryInterface::class => function(ContainerInterface $c) {
+                BlobServiceClient::class => function(ContainerInterface $c) {
                     $settings = $c->get('settings')['blob'];
 
-                    return new AccountUrlFactory($settings['account'], $settings['container'], $settings['key']);
+                    $dsn = sprintf(
+                        'DefaultEndpointsProtocol=%s;AccountName=%s;AccountKey=%s;BlobEndpoint=%s;',
+                        $settings['protocol'],
+                        $settings['accountName'],
+                        $settings['accountKey'],
+                        $settings['endpoint']
+                    );
+                   
+                    return BlobServiceClient::fromConnectionString($dsn);
                 },
     ];
