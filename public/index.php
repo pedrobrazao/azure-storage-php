@@ -1,6 +1,7 @@
     <?php
 
-use App\Handler\Api\SasUrls\CreateSasUrlHandler;
+use App\Handler\Containers\ContainerListHandler;
+use App\Handler\Containers\ContainerViewHandler;
 use App\Handler\HomeHandler;
 use DI\ContainerBuilder;
 use Psr\Http\Message\ResponseInterface;
@@ -59,7 +60,8 @@ $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
 // Define app routes
 $app->get('/', HomeHandler::class)->setName('home');
-$app->post('/api/sasurls', CreateSasUrlHandler::class);
+$app->get('/containers/list', ContainerListHandler::class)->setName('container_list');
+$app->get('/containers/view/{name}', ContainerViewHandler::class)->setName('container_view');
 
 // Run app
 $app->run();

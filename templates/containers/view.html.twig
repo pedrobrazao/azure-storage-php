@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Container: {{ container.name }}{% endblock %}
+
+{% block content %}
+    <h1>Container: {{ container.name }}</h1>
+    <p>Properties</p>
+    <ul>
+    <li>Last Modified: {{ container.properties.lastModified|date('c') }}
+    </ul>
+{% endblock %}
