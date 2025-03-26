@@ -1,5 +1,6 @@
     <?php
 
+use App\Handler\Blobs\BlobCreateHandler;
 use App\Handler\Containers\ContainerCreateHandler;
 use App\Handler\Containers\ContainerListHandler;
 use App\Handler\Containers\ContainerViewHandler;
@@ -64,6 +65,7 @@ $app->get('/', HomeHandler::class)->setName('home');
 $app->get('/containers/list', ContainerListHandler::class)->setName('container_list');
 $app->get('/containers/view/{name}', ContainerViewHandler::class)->setName('container_view');
 $app->map(['GET', 'POST'], '/containers/create', ContainerCreateHandler::class)->setName('container_create');
+$app->map(['GET', 'POST'], '/blobs/{container}/create', BlobCreateHandler::class)->setName('blob_create');
 
 // Run app
 $app->run();

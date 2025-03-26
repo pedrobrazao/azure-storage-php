@@ -4,8 +4,19 @@
 
 {% block content %}
     <h1>Container: {{ container.name }}</h1>
+    <nav>
+    <a href="{{ url_for('blob_create', {container: container.name}) }}">Create Blob</a>
+    </nav>
     <p>Properties</p>
     <ul>
     <li>Last Modified: {{ container.properties.lastModified|date('c') }}
     </ul>
+
+    <p>Blobs ({{ blobs|length }})</p>
+    <ul>
+    {% for blob in blobs %}
+    <li>{{ blob.name }}</li>
+    {% endfor %}
+    </ul>
+
 {% endblock %}

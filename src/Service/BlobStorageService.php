@@ -50,4 +50,26 @@ final class BlobStorageService
         $containerClient = $this->blobServiceClient->getContainerClient($name);
         $containerClient->create();
     }
+
+    public function listBlobs(string $containerName, string $prefix = null): array{
+        $blobs = [];
+
+        foreach ($this->blobServiceClient->getContainerClient($containerName)->getBlobs($prefix) as $blob) {
+            $blobs[] = $blob;
+        }
+
+        return $blobs;
+    }
+    public function writeBlob(string $containerName, string $blobName, string $contents): void
+    {
+$blobClient = $this->blobServiceClient->getContainerClient($containerName)->getBlobClient($blobName);
+$blobClient->upload($contents);
+    }
+
+    public function uploadBlob(string $containerName, string $blobName, string $fileName): void
+    {
+$blobClient = $this->blobServiceClient->getContainerClient($containerName)->getBlobClient($blobName);
+$file = fopen($fileName, 'r+');
+$blobClient->upload($file);
+    }
 }

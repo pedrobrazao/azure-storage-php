@@ -28,11 +28,14 @@ final class ContainerViewHandler implements RequestHandlerInterface
             return new Response(StatusCodeInterface::STATUS_NOT_FOUND);
         }
 
+        $blobs = $this->blobStorageService->listBlobs($container->name);
+
         $view = Twig::fromRequest($request);
         $response = new Response();
 
         return $view->render($response, 'containers/view.html.twig', [
             'container' => $container,
+            'blobs' => $blobs,
         ]);
     }
 }
