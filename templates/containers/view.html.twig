@@ -15,7 +15,9 @@
     <p>Blobs ({{ blobs|length }})</p>
     <ul>
     {% for blob in blobs %}
-    <li>{{ blob.name }}</li>
+    <li>
+    <a href="{{ url_for('blob_view', { container: container.name, blob: blob.name }) }}" title="{{ blob.name }}">{{ blob.name }}</a>
+    </li>
     {% endfor %}
     </ul>
 

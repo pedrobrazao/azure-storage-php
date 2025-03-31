@@ -1,6 +1,7 @@
 <?php
 namespace App\Service;
 
+use  AzureOss\Storage\Blob\Models\Blob;
 use  AzureOss\Storage\Blob\Models\BlobContainer;
 use  AzureOss\Storage\Blob\BlobServiceClient;
 
@@ -51,6 +52,9 @@ final class BlobStorageService
         $containerClient->create();
     }
 
+    /**
+     * @return Blob[]
+     */
     public function listBlobs(string $containerName, string $prefix = null): array{
         $blobs = [];
 
@@ -69,7 +73,17 @@ $blobClient->upload($contents);
     public function uploadBlob(string $containerName, string $blobName, string $fileName): void
     {
 $blobClient = $this->blobServiceClient->getContainerClient($containerName)->getBlobClient($blobName);
-$file = fopen($fileName, 'r+');
-$blobClient->upload($file);
+
+if (false !== $file = fopen($fileName, 'r+')) {
+    $blobClient->upload($file);
+}
+    }
+
+    public function getBlob(string $containerName, string $blobName): Blob
+    {
+        $blobClient = $this->blobServiceClient->getContainerClient($containerName)->getBlobClient($blobName);
+$properties = $blobClient->getProperties();
+return new Blob($blobName, $properties);
+
     }
 }
