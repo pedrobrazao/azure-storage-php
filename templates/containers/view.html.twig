@@ -5,7 +5,8 @@
 {% block content %}
     <h1>Container: {{ container.name }}</h1>
     <nav>
-    <a href="{{ url_for('blob_create', {container: container.name}) }}">Create Blob</a>
+    <a href="{{ url_for('blob_create', {container: container.name}) }}">Create Blob</a> |
+    <a href="{{ url_for('blob_upload', {container: container.name}) }}">Upload File</a>
     </nav>
     <p>Properties</p>
     <ul>
