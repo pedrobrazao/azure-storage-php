@@ -57,9 +57,6 @@ class ComposerStaticInit90bf5d232e05ae8ec0edfb5c1d844921
         ),
         'L' => 
         array (
-            'League\\MimeTypeDetection\\' => 25,
-            'League\\Flysystem\\Local\\' => 23,
-            'League\\Flysystem\\' => 17,
             'Laravel\\SerializableClosure\\' => 28,
         ),
         'I' => 
@@ -86,7 +83,6 @@ class ComposerStaticInit90bf5d232e05ae8ec0edfb5c1d844921
         'A' => 
         array (
             'AzureOss\\Storage\\' => 17,
-            'AzureOss\\FlysystemAzureBlobStorage\\' => 35,
             'App\\Tests\\' => 10,
             'App\\' => 4,
         ),
@@ -159,18 +155,6 @@ class ComposerStaticInit90bf5d232e05ae8ec0edfb5c1d844921
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
-        'League\\MimeTypeDetection\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
-        ),
-        'League\\Flysystem\\Local\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/league/flysystem-local',
-        ),
-        'League\\Flysystem\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/league/flysystem/src',
-        ),
         'Laravel\\SerializableClosure\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/serializable-closure/src',
@@ -214,10 +198,6 @@ class ComposerStaticInit90bf5d232e05ae8ec0edfb5c1d844921
         'AzureOss\\Storage\\' => 
         array (
             0 => __DIR__ . '/..' . '/azure-oss/storage/src',
-        ),
-        'AzureOss\\FlysystemAzureBlobStorage\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/azure-oss/storage-blob-flysystem/src',
         ),
         'App\\Tests\\' => 
         array (
@@ -597,12 +577,6 @@ class ComposerStaticInit90bf5d232e05ae8ec0edfb5c1d844921
         'PHPUnit\\Framework\\IsolatedTestRunner' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/TestRunner/IsolatedTestRunner.php',
         'PHPUnit\\Framework\\IsolatedTestRunnerRegistry' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/TestRunner/IsolatedTestRunnerRegistry.php',
         'PHPUnit\\Framework\\MockObject\\BadMethodCallException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Exception/BadMethodCallException.php',
-        'PHPUnit\\Framework\\MockObject\\Builder\\Identity' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Builder/Identity.php',
-        'PHPUnit\\Framework\\MockObject\\Builder\\InvocationMocker' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Builder/InvocationMocker.php',
-        'PHPUnit\\Framework\\MockObject\\Builder\\InvocationStubber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Builder/InvocationStubber.php',
-        'PHPUnit\\Framework\\MockObject\\Builder\\MethodNameMatch' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Builder/MethodNameMatch.php',
-        'PHPUnit\\Framework\\MockObject\\Builder\\ParametersMatch' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Builder/ParametersMatch.php',
-        'PHPUnit\\Framework\\MockObject\\Builder\\Stub' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Builder/Stub.php',
         'PHPUnit\\Framework\\MockObject\\CannotUseOnlyMethodsException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Exception/CannotUseOnlyMethodsException.php',
         'PHPUnit\\Framework\\MockObject\\ConfigurableMethod' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/ConfigurableMethod.php',
         'PHPUnit\\Framework\\MockObject\\DoubledCloneMethod' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Api/DoubledCloneMethod.php',
@@ -627,6 +601,8 @@ class ComposerStaticInit90bf5d232e05ae8ec0edfb5c1d844921
         'PHPUnit\\Framework\\MockObject\\IncompatibleReturnValueException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Exception/IncompatibleReturnValueException.php',
         'PHPUnit\\Framework\\MockObject\\Invocation' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Invocation.php',
         'PHPUnit\\Framework\\MockObject\\InvocationHandler' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/InvocationHandler.php',
+        'PHPUnit\\Framework\\MockObject\\InvocationStubber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Interface/InvocationStubber.php',
+        'PHPUnit\\Framework\\MockObject\\InvocationStubberImplementation' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/InvocationStubberImplementation.php',
         'PHPUnit\\Framework\\MockObject\\MatchBuilderNotFoundException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Exception/MatchBuilderNotFoundException.php',
         'PHPUnit\\Framework\\MockObject\\Matcher' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Matcher.php',
         'PHPUnit\\Framework\\MockObject\\MatcherAlreadyRegisteredException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Exception/MatcherAlreadyRegisteredException.php',

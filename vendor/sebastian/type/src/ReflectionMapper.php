@@ -9,6 +9,7 @@
  */
 namespace SebastianBergmann\Type;
 
+use function array_filter;
 use function assert;
 use ReflectionFunction;
 use ReflectionIntersectionType;
@@ -156,16 +157,40 @@ final class ReflectionMapper
 
     private function mapUnionType(ReflectionUnionType $type, ReflectionFunction|ReflectionMethod|ReflectionProperty $reflector): Type
     {
-        $types = [];
+        $types             = [];
+        $objectType        = false;
+        $genericObjectType = false;
 
         foreach ($type->getTypes() as $_type) {
             if ($_type instanceof ReflectionNamedType) {
-                $types[] = $this->mapNamedType($_type, $reflector);
+                $namedType = $this->mapNamedType($_type, $reflector);
+
+                if ($namedType instanceof GenericObjectType) {
+                    $genericObjectType = true;
+                } elseif ($namedType instanceof ObjectType) {
+                    $objectType = true;
+                }
+
+                $types[] = $namedType;
 
                 continue;
             }
 
             $types[] = $this->mapIntersectionType($_type, $reflector);
+        }
+
+        if ($objectType && $genericObjectType) {
+            $types = array_filter(
+                $types,
+                static function (Type $type): bool
+                {
+                    if ($type instanceof ObjectType) {
+                        return false;
+                    }
+
+                    return true;
+                },
+            );
         }
 
         return new UnionType(...$types);

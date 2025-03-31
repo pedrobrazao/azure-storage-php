@@ -22,9 +22,6 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
-    'League\\MimeTypeDetection\\' => array($vendorDir . '/league/mime-type-detection/src'),
-    'League\\Flysystem\\Local\\' => array($vendorDir . '/league/flysystem-local'),
-    'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
     'Laravel\\SerializableClosure\\' => array($vendorDir . '/laravel/serializable-closure/src'),
     'Invoker\\' => array($vendorDir . '/php-di/invoker/src'),
     'GuzzleRetry\\' => array($vendorDir . '/caseyamcl/guzzle_retry_middleware/src'),
@@ -36,7 +33,6 @@ return array(
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'DI\\' => array($vendorDir . '/php-di/php-di/src'),
     'AzureOss\\Storage\\' => array($vendorDir . '/azure-oss/storage/src'),
-    'AzureOss\\FlysystemAzureBlobStorage\\' => array($vendorDir . '/azure-oss/storage-blob-flysystem/src'),
     'App\\Tests\\' => array($baseDir . '/tests'),
     'App\\' => array($baseDir . '/src'),
 );
