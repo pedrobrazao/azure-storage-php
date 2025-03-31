@@ -3,12 +3,8 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h1>Containers ({{ containers|length }})</h1>
-    <ul>
-    {% for container in containers %}
-    <li>
-    {{ container.name }}
-    </li>
-    {% endfor %}
-    </ul>
+<nav>
+<a href="{{ url_for('container_list') }}">List Containers</a><br>
+<a href="{{ url_for('container_create') }}">Create Container</a><br>
+</nav>
 {% endblock %}

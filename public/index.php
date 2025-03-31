@@ -1,6 +1,11 @@
     <?php
-
-use App\Handler\Api\SasUrls\CreateSasUrlHandler;
+    
+use App\Handler\Blobs\BlobCreateHandler;
+use App\Handler\Blobs\BlobUploadHandler;
+use App\Handler\Blobs\BlobViewHandler;
+use App\Handler\Containers\ContainerCreateHandler;
+use App\Handler\Containers\ContainerListHandler;
+use App\Handler\Containers\ContainerViewHandler;
 use App\Handler\HomeHandler;
 use DI\ContainerBuilder;
 use Psr\Http\Message\ResponseInterface;
@@ -59,7 +64,13 @@ $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
 // Define app routes
 $app->get('/', HomeHandler::class)->setName('home');
-$app->post('/api/sasurls', CreateSasUrlHandler::class);
+$app->get('/containers/list', ContainerListHandler::class)->setName('container_list');
+$app->get('/containers/view/{name}', ContainerViewHandler::class)->setName('container_view');
+$app->map(['GET', 'POST'], '/containers/create', ContainerCreateHandler::class)->setName('container_create');
+$app->map(['GET', 'POST'], '/blobs/{container}/create', BlobCreateHandler::class)->setName('blob_create');
+$app->map(['GET', 'POST'], '/blobs/{container}/upload', BlobUploadHandler::class)->setName('blob_upload');
+$app->get('/blobs/{container}/view[/{blob:.+}]', BlobViewHandler::class)->setName('blob_view');
+
 
 // Run app
 $app->run();

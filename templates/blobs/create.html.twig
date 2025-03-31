@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Create Blob{% endblock %}
+
+{% block content %}
+    <h1>Create Blob</h1>
+
+    {% if error %}
+    <p class="error">ERROR: {{ error }}</p>
+    {% endif %}
+    <form method="POST">
+    <dl>
+    <dt>Container Name</dt>
+    <dd>{{ container }}</dd>
+    <dt>Blob Name</dt>
+    <dd>
+    <input type="text" name="name" title="Blob Name" value="{{ form.name }}">
+    </dd>
+    <dt>Blob Content</dt>
+    <dd>
+    <textarea name="contents">{{ form.contents }}</textarea>
+    </dd>
+    <dd>
+    <button type="submit">Create</button>
+    </dd>
+    </dl>
+    </form>
+{% endblock %}

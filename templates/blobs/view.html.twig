@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ container}}: {{ blob.name }}{% endblock %}
+
+{% block content %}
+    <h1><a href="{{ url_for('container_view', { name: container }) }}">{{ container }}</a>: {{ blob.name }}b</h1>
+<ul>
+<li>Last Modified: {{ blob.properties.lastModified|date('c') }}</li>
+<li>Content Length: {{ blob.properties.contentLength }} bytes</li>
+Length<li>Content Type: {{ blob.properties.contentType }}</li>
+</ul>
+{% endblock %}

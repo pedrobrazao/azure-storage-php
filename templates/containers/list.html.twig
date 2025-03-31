@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Containers{% endblock %}
+
+{% block content %}
+    <h1>Containers ({{ containers|length }})</h1>
+    <ul>
+    {% for container in containers %}
+    <li>
+    <a href="{{ url_for('container_view', { name: container.name}) }}">{{ container.name }}</a>
+    </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
